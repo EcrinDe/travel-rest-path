@@ -95,7 +95,7 @@ class InsideRESTSlapOS():
       os.mkdir(directory_path)
     for instance in instance_list:
       data = self.travelPath([], instance[LINK_NAME]['item'][0])
-      file_path = os.path.join(directory_path, data['title'])
+      file_path = os.path.join(directory_path, data['title'].replace('/',''))
       open(file_path, 'w').write(json.dumps(data, indent=2, sort_keys=True))
       self.pp.pprint(self.travelPath([], instance[LINK_NAME]['item'][0]))
 
